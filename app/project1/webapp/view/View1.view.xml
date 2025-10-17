@@ -1,0 +1,419 @@
+<mvc:View
+    controllerName="project1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:m="sap.m"
+    xmlns:t="sap.ui.table"
+    xmlns:l="sap.ui.layout"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:layout="sap.ui.layout"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
+    height="100%"
+>
+    <m:Page
+        showHeader="false"
+        class="sapUiContentPadding"
+    >
+        <m:content>
+            <m:Carousel
+                id="myCarousel"
+                loop="true"
+                height="580px"
+                class="sapUiContentPadding"
+            >
+                <m:VBox class="sapUiSmallMargin">
+                    <m:Title
+                        id="carouselTitle"
+                        text="Product Management"
+                        level="H2"
+                    />
+
+                    <t:Table
+                        id="productTable"
+                        rows="{obj>/ProductCollection}"
+                        selectionMode="None"
+                        ariaLabelledBy="title"
+                    >
+                        <t:extension>
+                            <m:OverflowToolbar style="Clear">
+                                <m:Title
+                                    id="title"
+                                    text="Products"
+                                />
+                                <m:ToolbarSpacer />
+                                <m:Button
+                                    text="Add Product"
+                                    icon="sap-icon://add"
+                                    press="onAddProduct"
+                                />
+                                <m:Button
+                                    text="Save Product"
+                                    icon="sap-icon://save"
+                                    type="Emphasized"
+                                    press="onSaveProduct"
+                                />
+                            </m:OverflowToolbar>
+                        </t:extension>
+
+                        
+                        <t:columns>
+                            <t:Column width="12rem">
+                                <m:Label text="Brand Name" />
+                                <t:template>
+                                    <m:Input
+                                        value="{obj>brandName}"
+                                        id="brandNameId_t"
+                                        placeholder="Enter Brand Name"
+                                    />
+                                </t:template>
+                            </t:Column>
+
+                            <t:Column width="12rem">
+                                <m:Label text="Category" />
+                                <t:template>
+                                    <m:Input
+                                        value="{obj>category}"
+                                        id="categoryId_t"
+                                        
+                                        placeholder="Enter Category"
+                                    />
+                                </t:template>
+                            </t:Column>
+
+                           <t:Column width="15rem">
+                                <m:Label text="Product Name" />
+                                <t:template>
+                                    <m:Input
+                                        value="{obj>productName}"
+                                        id="productNameId_t"
+                                        placeholder="Enter Product Name"
+                                    />
+                                </t:template>
+                            </t:Column>
+
+                            <t:Column width="12rem">
+                                <m:Label text="Product Code" />
+                                <t:template>
+                                    <m:Input
+                                        value="{obj>productCode}"
+                                        id="productCodeId_t"
+                                        placeholder="Enter Product Code"
+                                    />
+                                </t:template>
+                            </t:Column>
+
+                        
+                            <t:Column width="20rem">
+                                <m:Label text="Description" />
+                                <t:template>
+                                    <m:Input
+                                        value="{obj>description}"
+                                        id="descriptionId_t"
+                                        placeholder="Enter Description"
+                                    />
+                                </t:template>
+                            </t:Column>
+
+                            <t:Column width="10rem">
+                                <m:Label text="Weight" />
+                                <t:template>
+                                    <m:Input
+                                        value="{obj>weight}"
+                                        id="weightId_t"
+                                        placeholder="Enter Weight"
+										type="Number"
+                                    />
+                                </t:template>
+                            </t:Column>
+
+                            <t:Column width="8rem">
+                                <m:Label text="Unit" />
+                                <t:template>
+                                    <m:Input
+                                        value="{obj>unitOfMeasure}"
+                                        id="unitId_t"
+
+                                        placeholder="Enter Unit"
+										
+                                    />
+                                </t:template>
+                            </t:Column>
+
+                            <t:Column width="10rem">
+                                <m:Label text="MRP" />
+                                <t:template>
+                                    <m:Input
+                                        value="{obj>mrp}"
+                                        id="mrpId_t"
+                                        placeholder="Enter MRP"
+										type="Number"
+                                    />
+                                </t:template>
+                            </t:Column>
+
+                            <t:Column width="10rem">
+                                <m:Label text="Discount (%)" />
+                                <t:template>
+                                    <m:Input
+                                        value="{obj>discountPercent}"
+                                        id="discountId_t"
+                                        placeholder="Enter Discount"
+										type="Number"
+                                    />
+                                </t:template>
+                            </t:Column>
+
+                            <t:Column width="10rem">
+                                <m:Label text="GST (%)" />
+                                <t:template>
+                                    <m:Input
+                                        value="{obj>gstPercent}"
+                                        placeholder="Enter GST"
+                                        id="gstId_t"
+										type="Number"
+                                    />
+                                </t:template>
+                            </t:Column>
+
+                            <t:Column width="10rem">
+                                <m:Label text="Stock Quantity" />
+                                <t:template>
+                                    <m:Input
+                                        value="{obj>stockQuantity}"
+                                        placeholder="Enter Stock Quantity"
+                                        id="stockQuantityId_t"
+										type="Number"
+                                    />
+                                </t:template>
+                            </t:Column>
+
+                            <t:Column width="12rem">
+                                <m:Label text="Reorder Level" />
+                                <t:template>
+                                    <m:Input
+                                        value="{obj>reorderLevel}"
+                                        placeholder="Enter Reorder Level"
+                                        id="reorderLevelId_t"
+										type="Number"
+                                    />
+                                </t:template>
+                            </t:Column>
+
+                            <t:Column width="15rem">
+                                <m:Label text="Manufactured Date" />
+                                <t:template>
+                                    <m:DatePicker
+                                        value="{obj>manufacturedDate}"
+                                        id="manufactureDateId_t"
+                                        placeholder="Enter Manufactured Date"
+                                    />
+                                </t:template>
+                            </t:Column>
+
+                            <t:Column width="12rem">
+                                <m:Label text="Expiry Date" />
+                                <t:template>
+                                    <m:DatePicker
+                                        value="{obj>expiryDate}"
+                                        id="expiryDateId_t"
+                                        placeholder="Enter Expiry Date"
+                                    />
+                                </t:template>
+                            </t:Column>
+                        </t:columns>
+                    </t:Table>
+                </m:VBox>
+
+                <m:VBox class="sapUiSmallMargin">
+                    <f:Form
+                        id="VBoxTab1"
+                        editable="true"
+                    >
+                        <f:title>
+                            <core:Title text="Product Details Form" />
+                        </f:title>
+                        <f:layout>
+                            <f:ResponsiveGridLayout
+                                labelSpanXL="3"
+                                labelSpanL="3"
+                                labelSpanM="3"
+                                labelSpanS="12"
+                                adjustLabelSpan="false"
+                                emptySpanXL="4"
+                                emptySpanL="4"
+                                emptySpanM="4"
+                                emptySpanS="0"
+                                columnsXL="1"
+                                columnsL="1"
+                                columnsM="1"
+                            />
+                        </f:layout>
+
+                        <f:formContainers>
+                            <f:FormContainer>
+                                <f:formElements>
+                                    <f:FormElement label="Brand Name">
+                                        <f:fields>
+                                            <ComboBox
+                                                items="{
+                                					path: 'obj>/uniqueBrands',
+                                					sorter: { path: 'brandName' }
+                            						}"
+                                                id="brandNameId"
+                                                value=""
+                                                placeholder="Enter Brand Name"
+                                                selectedKey="{obj>product/brandName}"
+                                            >
+                                                <core:Item
+                                                    key="{obj>brandName}"
+                                                    text="{obj>brandName}"
+                                                />
+                                            </ComboBox>
+                                        </f:fields>
+                                    </f:FormElement>
+
+                                    <f:FormElement label="Category">
+                                        <f:fields>
+                                            <ComboBox
+                                                items="{
+                                				path: 'obj>/uniqueCategory',
+                                				sorter: { path: 'category' }
+                            					}"
+                                                id="categoryId"
+                                                value=""
+                                                placeholder="Enter Product Category"
+                                                selectedKey="{obj>product/category}"
+                                            >
+                                                <core:Item
+                                                    key="{obj>category}"
+                                                    text="{obj>category}"
+                                                />
+                                            </ComboBox>
+                                        </f:fields>
+                                    </f:FormElement>
+                                    <f:FormElement label="Product Id">
+                                        <f:fields>
+                                            <Input
+                                                value=""
+                                                placeholder="Enter Product Id"
+                                                id="productIdId"
+                                            />
+                                        </f:fields>
+                                    </f:FormElement>
+                                    <f:FormElement label="Product Name">
+                                        <f:fields>
+                                            <Input
+                                                value=""
+                                                placeholder="Enter Product Name"
+                                                id="productNameId"
+                                            />
+                                        </f:fields>
+                                    </f:FormElement>
+
+                                    <f:FormElement label="Product Code">
+                                        <f:fields>
+                                            <Input
+                                                value=""
+                                                placeholder="Enter Product Code"
+                                                id="productCodeId"
+                                            />
+                                        </f:fields>
+                                    </f:FormElement>
+                                    <f:FormElement label="Description">
+                                        <f:fields>
+                                            <Input
+                                                value=""
+                                                placeholder="Enter Product Description"
+                                                id="descriptionId"
+                                            />
+                                        </f:fields>
+                                    </f:FormElement>
+                                    <f:FormElement label="Weight / Net">
+                                        <f:fields>
+                                            <Input
+                                                value=""
+                                                placeholder="Enter Product Weight"
+                                                id="weightId"
+                                                
+                                            />
+                                            <m:Input
+                                                selectedKey=""
+                                                id="unitOfMeasureId"
+                                            />
+                                        </f:fields>
+                                    </f:FormElement>
+
+                                    <f:FormElement label="MRP">
+                                        <f:fields>
+                                            <Input
+                                                value=""
+                                                placeholder="Enter Product MRP"
+                                                id="mrpId"
+                                                type="Number"
+                                            />
+                                        </f:fields>
+                                    </f:FormElement>
+                                     <f:FormElement label="Discount Percent">
+                                        <f:fields>
+                                            <Input
+                                                value=""
+                                                placeholder="Enter Discount Percentage"
+                                                id="discountPercentId"
+                                                type="Number"
+                                            />
+                                        </f:fields>
+                                    </f:FormElement>
+
+                                    <f:FormElement label="GST Percent">
+                                        <f:fields>
+                                            <Input
+                                                value=""
+                                                placeholder="Enter GST in Percentage"
+                                                id="gstPercentId"
+                                                type="Number"
+                                            />
+                                        </f:fields>
+                                    </f:FormElement>
+
+                                    <f:FormElement label="Stock Quantity">
+                                        <f:fields>
+                                            <Input
+                                                value=""
+                                                placeholder="Enter Stock Quantity"
+                                                id="stockQuantityId"
+                                                type="Number"
+                                            />
+                                        </f:fields>
+                                    </f:FormElement>
+
+                                    <f:FormElement label="Manufactured Date">
+                                        <f:fields>
+                                            <DatePicker
+                                                value=""
+                                                id="manufacturedDateId"
+                                            />
+                                        </f:fields>
+                                    </f:FormElement>
+
+                                    <f:FormElement label="Expiry Date">
+                                        <f:fields>
+                                            <DatePicker
+                                                value=""
+                                                id="expiryDateId"
+                                            />
+                                        </f:fields>
+                                    </f:FormElement>
+
+                                   
+                                </f:formElements>
+                            </f:FormContainer>
+                        </f:formContainers>
+                    </f:Form>
+                </m:VBox>
+            </m:Carousel>
+        </m:content>
+    </m:Page>
+</mvc:View>

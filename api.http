@@ -1,0 +1,26 @@
+###
+GET http://localhost:41299/odata/v4/my/Product 
+
+
+###
+POST http://localhost:41299/odata/v4/my/Product 
+Content-Type: application/json
+
+{
+  "productId": "6",
+  "brandName": "TATA",
+  "category": "groceries",
+  "description": "with iodine",
+  "discountPercent": 10,
+  "expiryDate": "2025-10-30",
+  "gstPercent": 10,
+  "manufacturedDate": "2025-10-01",
+  "mrp": 20,
+  "ownerId": "U006",
+  "productCode": "PRD001",
+  "productName": "Salt",
+  "reorderLevel": 10,
+  "stockQuantity": 20,
+  "unitOfMeasure": "gm",
+  "weight": 500
+}

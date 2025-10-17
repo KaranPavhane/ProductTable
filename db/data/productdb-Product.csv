@@ -1,0 +1,6 @@
+productId,productCode,productName,description,category,brandName,unitOfMeasure,weight,mrp,discountPercent,gstPercent,stockQuantity,reorderLevel,expiryDate,manufacturedDate,ownerId
+1,PRD001,Smartphone X1,High-end smartphone,Electronics,TechBrand,pcs,0.2,699.99,10,18,150,20,2026-12-31,2025-01-15,U001
+2,PRD002,Laptop Pro 15,Powerful laptop,Computers,CompTech,pcs,1.5,1299.50,5,18,50,10,2027-06-30,2025-02-20,U002
+3,PRD003,Wireless Mouse,Ergonomic mouse,Accessories,MouseCo,pcs,0.1,29.99,15,18,200,30,2026-05-15,2025-03-05,U003
+4,PRD004,LED Monitor 24,Full HD monitor,Monitors,ViewMax,pcs,3.0,199.99,8,18,80,15,2027-01-01,2025-04-10,U004
+5,PRD005,External SSD 1TB,Fast portable storage,Storage,DataSafe,pcs,0.15,149.99,12,18,120,25,2026-11-30,2025-05-25,U005
